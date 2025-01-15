@@ -2,17 +2,24 @@
 {
     public class DbInitializer
     {
-        public static void Seed(IApplicationBuilder applicationBuilder)
+        public static void Seed(IServiceProvider service)
         {
-            DrinkAndGoContext context = new DrinkAndGoContext();
+            DrinkAndGoContext context = 
+                service.GetRequiredService<DrinkAndGoContext>();
 
             if (!context.Categories.Any())
             {
-                context.Categories.AddRange(Categories.Select(c => c.Value));
+                context.Categories.AddRange(
+                    new Category { CategoryName = "Alcoholic", Description = "All alcoholic drinks" },
+                    new Category { CategoryName = "Non-alcoholic", Description = "All non-alcoholic drinks" });
+
+                context.SaveChanges();
             }
+            
 
             if (!context.Drinks.Any())
             {
+                var Categories = context.Categories.ToDictionary(c => c.CategoryName, c => c);
                 context.AddRange
                 (
                     new Drink
@@ -247,31 +254,6 @@
             }
 
             context.SaveChanges();
-        }
-
-        private static Dictionary<string, Category> categories;
-        public static Dictionary<string, Category> Categories
-        {
-            get
-            {
-                if (categories == null)
-                {
-                    var genresList = new Category[]
-                    {
-                        new Category { CategoryName = "Alcoholic", Description="All alcoholic drinks" },
-                        new Category { CategoryName = "Non-alcoholic", Description="All non-alcoholic drinks" }
-                    };
-
-                    categories = new Dictionary<string, Category>();
-
-                    foreach (Category genre in genresList)
-                    {
-                        categories.Add(genre.CategoryName, genre);
-                    }
-                }
-
-                return categories;
-            }
         }
     }
 }

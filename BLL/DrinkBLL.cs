@@ -5,14 +5,18 @@ namespace DrinkAndGo.BLL
 {
     public class DrinkBLL : IDrinkRepository
     {
-        DrinkAndGoContext context = new DrinkAndGoContext();
-        public IEnumerable<Drink> Drinks => context.Drinks.Include(c=>c.Category);
+        private readonly DrinkAndGoContext _context;
 
-        public IEnumerable<Drink> PreferredDrinks => throw new NotImplementedException();
-
-        public Drink GetDrinkById(int drinkId)
+        public DrinkBLL(DrinkAndGoContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
+
+        public IEnumerable<Drink> Drinks => _context.Drinks.Include(c => c.Category);
+
+        public IEnumerable<Drink> PreferredDrinks => _context.Drinks.Where(d => d.IsPreferredDrink).Include(c => c.Category);
+
+        public Drink? GetDrinkById(int drinkId) => _context.Drinks.FirstOrDefault(d => d.DrinkId == drinkId);
+
     }
 }

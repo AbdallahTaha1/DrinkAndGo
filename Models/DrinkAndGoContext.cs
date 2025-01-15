@@ -5,11 +5,7 @@ namespace DrinkAndGo.Models
 {
     public class DrinkAndGoContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=.;Database=DrinkAndGo;Trusted_Connection=True;TrustServerCertificate=True;");
-            base.OnConfiguring(optionsBuilder);
-        }
+        public DrinkAndGoContext(DbContextOptions<DrinkAndGoContext> options) : base(options) { }
 
         public virtual DbSet<Drink> Drinks { get; set; }
         public virtual DbSet<Category> Categories { get; set; }

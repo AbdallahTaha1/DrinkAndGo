@@ -4,7 +4,7 @@
     {
         public int ShoppingCartItemId { get; set; }
         public Drink Drink { get; set; }
-        public int amount { get; set; }
+        public int Amount { get; set; }
         public string ShoppingCartId { get; set; }
 
     }
