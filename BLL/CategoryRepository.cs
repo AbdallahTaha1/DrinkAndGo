@@ -2,11 +2,11 @@
 
 namespace DrinkAndGo.BLL
 {
-    public class CategoryBLL : ICategoryRepository
+    public class CategoryRepository : ICategoryRepository
     {
         private readonly DrinkAndGoContext _context;
 
-        public CategoryBLL(DrinkAndGoContext context)
+        public CategoryRepository(DrinkAndGoContext context)
         {
             _context = context;
         }

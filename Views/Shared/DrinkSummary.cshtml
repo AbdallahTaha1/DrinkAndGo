@@ -1,13 +1,21 @@
 ﻿@model Drink
 
-<div class="col-sm-4 col-lg-4 col-md-4">
-    <div class="img-thumbnail img-fluid">
-        <img src="@Model.ImageThumbnailUrl">
-        <div class="caption">
-            <h3 class="pull-right">@Model.Price.ToString("c")</h3>
-            <h3><a>@Model.Name</a></h3>
-            <p>@Model.ShortDescription</p>
-
+<div class="col-sm-4 col-lg-4 col-md-4 mb-4">
+    <div class="card shadow-sm border-0" style="height: 400px;">
+        <div class="image-container" style="height: 250px; overflow: hidden;">
+            <img src="@Model.ImageThumbnailUrl" class="card-img-top img-fluid w-100 h-100" alt="@Model.Name" style="object-fit: contain;">
+        </div>
+        <div class="card-body text-center d-flex flex-column justify-content-between">
+            <div>
+                <h5 class="card-title text-primary fw-bold">@Model.Name</h5>
+                <p class="card-text text-muted">@Model.ShortDescription</p>
+            </div>
+            <h5 class="text-success fw-bold">@Model.Price.ToString("c")</h5>
+        </div>
+        <div class="card-footer bg-transparent border-0 text-center">
+            <a href="#" class="btn btn-primary btn-sm">View Details</a>
+            <a href="#" class="btn btn-outline-success btn-sm">Add to Cart</a>
         </div>
     </div>
 </div>
+

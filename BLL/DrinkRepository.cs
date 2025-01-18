@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DrinkAndGo.BLL
 {
-    public class DrinkBLL : IDrinkRepository
+    public class DrinkRepository : IDrinkRepository
     {
         private readonly DrinkAndGoContext _context;
 
-        public DrinkBLL(DrinkAndGoContext context)
+        public DrinkRepository(DrinkAndGoContext context)
         {
             _context = context;
         }

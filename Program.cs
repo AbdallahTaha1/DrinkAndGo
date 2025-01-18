@@ -14,8 +14,8 @@ namespace DrinkAndGo
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
                                             ?? throw new InvalidOperationException("No connection string was found");
             builder.Services.AddControllersWithViews();
-            builder.Services.AddTransient<ICategoryRepository, CategoryBLL>();
-            builder.Services.AddTransient<IDrinkRepository, DrinkBLL>();
+            builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddTransient<IDrinkRepository, DrinkRepository>();
             builder.Services.AddDbContext<DrinkAndGoContext>(options =>
                     options.UseSqlServer(connectionString));
 
