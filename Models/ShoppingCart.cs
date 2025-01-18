@@ -69,6 +69,24 @@
 
             return localAmount;
         }
+        public List<ShoppingCartItem> GetShoppingCartItems()
+        {
+            return ShoppingCartItems ??
+                   (ShoppingCartItems =
+                       _context.ShoppingCartItems.Where(c => c.ShoppingCartId == ShoppingCartId)
+                           .ToList());
+        }
+
+        public void ClearCart()
+        {
+            var cartItems = _context
+                .ShoppingCartItems
+                .Where(cart => cart.ShoppingCartId == ShoppingCartId);
+
+            _context.ShoppingCartItems.RemoveRange(cartItems);
+
+            _context.SaveChanges();
+        }
         public decimal GetShoppingCartTotal()
         {
             var total = _context.ShoppingCartItems.Where(c => c.ShoppingCartId == ShoppingCartId)
