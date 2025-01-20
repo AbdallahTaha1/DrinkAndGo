@@ -2,6 +2,13 @@
   "version": "1.0",
   "defaultProvider": "cdnjs",
   "libraries": [
-
+    {
+      "library": "SlickNav@1.0.10",
+      "destination": "wwwroot/lib/SlickNav/",
+      "files": [
+        "slicknav.min.css",
+        "jquery.slicknav.min.js"
+      ]
+    }
   ]
 }

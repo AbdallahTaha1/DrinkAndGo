@@ -15,12 +15,25 @@ namespace DrinkAndGo.Controllers
             _drinkRepository = drinkRepository;
         }
 
-        public IActionResult Index()
+        public IActionResult List([FromQuery]string category)
         {
+            ViewBag.Name = category;
+
+            IEnumerable<Drink> drinks;
             DrinkListVeiwModel model = new DrinkListVeiwModel();
-            IEnumerable<Drink> drinks = _drinkRepository.Drinks;
-            model.Drinks = drinks;
-            model.CurrentCategory = "All Category"; 
+
+            if (String.IsNullOrEmpty(category))
+            {
+                drinks = _drinkRepository.Drinks;
+                model.Drinks = drinks;
+                model.CurrentCategory = "All Categories";
+            }
+            else
+            {
+                drinks = _drinkRepository.Drinks.Where(d => d.Category.CategoryName == category);
+                model.Drinks = drinks;
+                model.CurrentCategory = category;
+            }
             return View(model);
         }
     }

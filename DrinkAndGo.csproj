@@ -27,8 +27,4 @@
     <_ContentIncludedByDefault Remove="Views\Shared\Carousel.cshtml" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="Views\Home\Carousel.cshtml" />
-  </ItemGroup>
-
 </Project>

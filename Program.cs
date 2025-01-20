@@ -16,6 +16,8 @@ namespace DrinkAndGo
             builder.Services.AddControllersWithViews();
             builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
             builder.Services.AddTransient<IDrinkRepository, DrinkRepository>();
+            builder.Services.AddScoped<ShoppingCart>();
+
             builder.Services.AddDbContext<DrinkAndGoContext>(options =>
                     options.UseSqlServer(connectionString));
 

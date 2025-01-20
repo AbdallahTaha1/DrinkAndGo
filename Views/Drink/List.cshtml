@@ -7,12 +7,12 @@
 
 <h2>@Model.CurrentCategory</h2>
 <div class="row">
-@{
-    foreach (Drink drink in Model.Drinks)
-    {
-        @Html.Partial("DrinkSummary", drink)
+    @{
+        foreach (Drink drink in Model.Drinks)
+        {
+            @Html.Partial("DrinkSummary", drink)
+        }
     }
-}
 </div>
 
-@await Html.PartialAsync("_Carousel")
+@await Html.PartialAsync("_Carousel");
