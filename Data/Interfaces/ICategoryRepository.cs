@@ -1,6 +1,6 @@
-﻿using DrinkAndGo.Models;
+﻿using DrinkAndGo.Data.Models;
 
-namespace DrinkAndGo.BLL
+namespace DrinkAndGo.Data.Interfaces
 {
     public interface ICategoryRepository
     {

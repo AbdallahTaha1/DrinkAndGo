@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.ComponentModel.DataAnnotations;
 
-namespace DrinkAndGo.Models
+namespace DrinkAndGo.Data.Models
 {
     public class Order
     {

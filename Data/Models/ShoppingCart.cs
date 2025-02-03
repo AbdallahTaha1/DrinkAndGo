@@ -1,4 +1,4 @@
-﻿namespace DrinkAndGo.Models
+﻿namespace DrinkAndGo.Data.Models
 {
     public class ShoppingCart
     {
@@ -12,7 +12,7 @@
         public string ShoppingCartId { get; set; }
         public List<ShoppingCartItem> ShoppingCartItems { get; set; }
 
-        public static ShoppingCart GetCart(IServiceProvider services) 
+        public static ShoppingCart GetCart(IServiceProvider services)
         {
             ISession session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
 
@@ -25,8 +25,8 @@
             return new ShoppingCart(context) { ShoppingCartId = cartId };
         }
 
-        public void AddToCart(Drink drink, int amount) 
-        { 
+        public void AddToCart(Drink drink, int amount)
+        {
             var shoppingCartItem = _context.ShoppingCartItems.SingleOrDefault(
                 s => s.Drink.DrinkId == drink.DrinkId && s.ShoppingCartId == ShoppingCartId);
 
@@ -40,7 +40,7 @@
                 };
                 _context.ShoppingCartItems.Add(shoppingCartItem);
             }
-            else 
+            else
             {
                 shoppingCartItem.Amount = amount++;
             }

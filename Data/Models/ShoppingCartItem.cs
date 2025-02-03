@@ -1,4 +1,4 @@
-﻿namespace DrinkAndGo.Models
+﻿namespace DrinkAndGo.Data.Models
 {
     public class ShoppingCartItem
     {

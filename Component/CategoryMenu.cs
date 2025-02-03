@@ -1,4 +1,4 @@
-﻿using DrinkAndGo.BLL;
+﻿using DrinkAndGo.Data.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DrinkAndGo.Component

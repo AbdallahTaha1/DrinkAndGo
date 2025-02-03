@@ -1,7 +1,8 @@
-﻿using DrinkAndGo.Models;
+﻿using DrinkAndGo.Data.Interfaces;
+using DrinkAndGo.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace DrinkAndGo.BLL
+namespace DrinkAndGo.Data.Repositories
 {
     public class DrinkRepository : IDrinkRepository
     {

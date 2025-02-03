@@ -1,10 +1,10 @@
-﻿namespace DrinkAndGo.Models
+﻿namespace DrinkAndGo.Data.Models
 {
     public class DbInitializer
     {
         public static void Seed(IServiceProvider service)
         {
-            DrinkAndGoContext context = 
+            DrinkAndGoContext context =
                 service.GetRequiredService<DrinkAndGoContext>();
 
             if (!context.Categories.Any())
@@ -23,7 +23,7 @@
                 );
                 context.SaveChanges();
             }
-            
+
 
             if (!context.Drinks.Any())
             {

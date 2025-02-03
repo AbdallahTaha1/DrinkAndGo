@@ -1,4 +1,4 @@
-﻿using DrinkAndGo.Models;
+﻿using DrinkAndGo.Data.Models;
 
 namespace DrinkAndGo.ViewModels
 {

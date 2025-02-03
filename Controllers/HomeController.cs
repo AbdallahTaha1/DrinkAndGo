@@ -1,4 +1,4 @@
-﻿using DrinkAndGo.BLL;
+﻿using DrinkAndGo.Data.Interfaces;
 using DrinkAndGo.Models;
 using DrinkAndGo.ViewModels;
 using Microsoft.AspNetCore.Mvc;

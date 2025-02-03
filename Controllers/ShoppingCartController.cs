@@ -1,5 +1,5 @@
-﻿using DrinkAndGo.BLL;
-using DrinkAndGo.Models;
+﻿using DrinkAndGo.Data.Interfaces;
+using DrinkAndGo.Data.Models;
 using DrinkAndGo.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 

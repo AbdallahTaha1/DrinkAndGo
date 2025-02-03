@@ -1,6 +1,7 @@
-﻿using DrinkAndGo.Models;
+﻿using DrinkAndGo.Data.Interfaces;
+using DrinkAndGo.Data.Models;
 
-namespace DrinkAndGo.BLL
+namespace DrinkAndGo.Data.Mocks
 {
     public class MockCategoryRepository : ICategoryRepository
     {

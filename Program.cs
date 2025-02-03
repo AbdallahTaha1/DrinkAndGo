@@ -1,5 +1,6 @@
-using DrinkAndGo.BLL;
-using DrinkAndGo.Models;
+using DrinkAndGo.Data.Interfaces;
+using DrinkAndGo.Data.Models;
+using DrinkAndGo.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace DrinkAndGo

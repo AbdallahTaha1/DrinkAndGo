@@ -1,4 +1,4 @@
-﻿namespace DrinkAndGo.BLL
+﻿namespace DrinkAndGo.Data.Interfaces
 {
     public interface IOrderRepository
     {
