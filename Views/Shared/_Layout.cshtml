@@ -79,6 +79,9 @@
                             <a class="nav-link" asp-controller="drink" asp-action="list">All Categories</a>
                         </li>
                         <li class="nav-item">
+                            @await Component.InvokeAsync("CategoryMenu")
+                        </li>
+                        @* <li class="nav-item">
                             <a class="nav-link" asp-controller="drink" asp-action="list" asp-route-category="Juices">Juices</a>
                         </li>
                         <li class="nav-item">
@@ -92,7 +95,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="drink" asp-action="list" asp-route-category="Fruit Blends">Fruit Blends</a>
-                        </li
+                        </li> *@
                     </ul>
                 </div>
             </div>
