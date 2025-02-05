@@ -8,7 +8,7 @@ namespace DrinkAndGo.Data.Models
         [BindNever]
         public int OrderId { get; set; }
 
-        public List<OrderDetail> OrderLines { get; set; }
+        public List<OrderDetail> OrderLines { get; set; } = new List<OrderDetail>();
 
         [Required(ErrorMessage = "Please enter your first name")]
         [Display(Name = "First name")]

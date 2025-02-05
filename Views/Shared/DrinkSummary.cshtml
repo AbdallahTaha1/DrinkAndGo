@@ -14,7 +14,9 @@
         </div>
         <div class="card-footer bg-transparent border-0 text-center">
             <a href="#" class="btn btn-primary btn-sm">View Details</a>
-            <a href="#" class="btn btn-outline-success btn-sm">Add to Cart</a>
+            <a asp-controller="ShoppingCart"
+               asp-action="AddToShoppingCart"
+               asp-route-drinkId="@Model.DrinkId" class="btn btn-outline-success btn-sm">Add to Cart</a>
         </div>
     </div>
 </div>

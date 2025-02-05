@@ -1,6 +1,7 @@
 using DrinkAndGo.Data.Interfaces;
 using DrinkAndGo.Data.Models;
 using DrinkAndGo.Data.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace DrinkAndGo
@@ -17,11 +18,13 @@ namespace DrinkAndGo
             builder.Services.AddControllersWithViews();
             builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
             builder.Services.AddTransient<IDrinkRepository, DrinkRepository>();
-            builder.Services.AddScoped<ShoppingCart>();
+            builder.Services.AddTransient<IOrderRepository, OrderRepository>();
 
             builder.Services.AddDbContext<DrinkAndGoContext>(options =>
                     options.UseSqlServer(connectionString));
-
+            
+            // Register IHttpContextAccessor
+            builder.Services.AddHttpContextAccessor();
             // Add session services
             builder.Services.AddDistributedMemoryCache(); // For storing session data in memory
             builder.Services.AddSession(options =>
@@ -30,6 +33,11 @@ namespace DrinkAndGo
                 options.Cookie.HttpOnly = true; // Ensure session cookie is accessible only on the server
                 options.Cookie.IsEssential = true; // Make session cookies essential
             });
+            builder.Services.AddScoped(sp => ShoppingCart.GetCart(sp));
+
+            builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<DrinkAndGoContext>();
+
 
             var app = builder.Build();
 
@@ -63,6 +71,7 @@ namespace DrinkAndGo
 
             app.UseSession();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(

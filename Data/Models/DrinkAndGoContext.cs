@@ -1,8 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using System.Data.Common;
 
 namespace DrinkAndGo.Data.Models
 {
-    public class DrinkAndGoContext : DbContext
+    public class DrinkAndGoContext : IdentityDbContext<IdentityUser>
     {
         public DrinkAndGoContext(DbContextOptions<DrinkAndGoContext> options) : base(options) { }
 

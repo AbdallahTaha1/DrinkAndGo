@@ -1,4 +1,6 @@
-﻿namespace DrinkAndGo.Data.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace DrinkAndGo.Data.Models
 {
     public class ShoppingCart
     {
@@ -74,7 +76,8 @@
             return ShoppingCartItems ??
                    (ShoppingCartItems =
                        _context.ShoppingCartItems.Where(c => c.ShoppingCartId == ShoppingCartId)
-                           .ToList());
+                                                 .Include(c => c.Drink)
+                                                 .ToList());
         }
 
         public void ClearCart()

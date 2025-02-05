@@ -40,7 +40,7 @@ namespace DrinkAndGo.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("DrinkAndGo.Models.Drink", b =>
@@ -87,7 +87,7 @@ namespace DrinkAndGo.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Drinks");
+                    b.ToTable("Drinks", (string)null);
                 });
 
             modelBuilder.Entity("DrinkAndGo.Models.Order", b =>
@@ -150,7 +150,7 @@ namespace DrinkAndGo.Migrations
 
                     b.HasKey("OrderId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("DrinkAndGo.Models.OrderDetail", b =>
@@ -179,7 +179,7 @@ namespace DrinkAndGo.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderDetails");
+                    b.ToTable("OrderDetails", (string)null);
                 });
 
             modelBuilder.Entity("DrinkAndGo.Models.ShoppingCartItem", b =>
@@ -204,7 +204,7 @@ namespace DrinkAndGo.Migrations
 
                     b.HasIndex("DrinkId");
 
-                    b.ToTable("ShoppingCartItems");
+                    b.ToTable("ShoppingCartItems", (string)null);
                 });
 
             modelBuilder.Entity("DrinkAndGo.Models.Drink", b =>
