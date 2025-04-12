@@ -3,12 +3,10 @@
 
 @if (Model.ShoppingCart.ShoppingCartItems.Count > 0)
 {
-    <li>
-        <a style="color:aliceblue;" asp-controller="ShoppingCart">
-            <i class="fa fa-shopping-cart"></i>
-            <span id="cart-status">
-                @Model.ShoppingCart.ShoppingCartItems.Count
-            </span>
-        </a>
-    </li>
+    <span id="cart-status">
+        Cart (@Model.ShoppingCart.ShoppingCartItems.Count)
+    </span>
+} else
+{
+    <span id="cart-status">Cart (0)</span>
 }
